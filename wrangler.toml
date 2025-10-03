@@ -1,0 +1,14 @@
+
+name = "placeholder-pages-worker"
+main = "src/index.js"
+compatibility_date = "2024-08-01"
+
+[vars]
+TEMPLATE_BASE_URL = "https://placeholder-static.pages.dev"
+
+[[kv_namespaces]]
+binding = "PLACEHOLDER_CONFIG"
+id = "b372343e2862450f8ded4e6b8e937847"
+
+[observability]
+enabled = true
