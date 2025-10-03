@@ -7,10 +7,6 @@ export default {
       mode: "paused",
       retry_after: 86400,
     };
-    try {
-      const raw = await env.PLACEHOLDER_CONFIG.get(host);
-      if (raw) cfg = { ...cfg, ...JSON.parse(raw) };
-    } catch (_) {}
 
     let status = 200;
     const headers = new Headers({
@@ -28,8 +24,8 @@ export default {
       headers.set("X-Robots-Tag", "noindex, nofollow");
     }
 
-    const base = env.TEMPLATE_BASE_URL || "";
-    const templateUrl = `${base}/maintenance.html`;
+    const base = "https://domain-parking.gjb.workers.dev";
+    const templateUrl = `${base}/index.html`;
     const upstream = await fetch(templateUrl, { cf: { cacheEverything: true } });
     
     const rewriter = new HTMLRewriter()
